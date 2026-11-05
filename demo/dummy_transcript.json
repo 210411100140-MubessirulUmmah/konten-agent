@@ -1,0 +1,601 @@
+{
+  "language": "id",
+  "duration": 53.9,
+  "segments": [
+    {
+      "start": 1.0,
+      "end": 5.56,
+      "text": "Selamat datang di podcast Top Business, hari ini kita bahas transformasi digital.",
+      "words": [
+        {
+          "start": 1.0,
+          "end": 1.38,
+          "word": "Selamat"
+        },
+        {
+          "start": 1.38,
+          "end": 1.76,
+          "word": "datang"
+        },
+        {
+          "start": 1.76,
+          "end": 2.14,
+          "word": "di"
+        },
+        {
+          "start": 2.14,
+          "end": 2.52,
+          "word": "podcast"
+        },
+        {
+          "start": 2.52,
+          "end": 2.9,
+          "word": "Top"
+        },
+        {
+          "start": 2.9,
+          "end": 3.28,
+          "word": "Business,"
+        },
+        {
+          "start": 3.28,
+          "end": 3.66,
+          "word": "hari"
+        },
+        {
+          "start": 3.66,
+          "end": 4.04,
+          "word": "ini"
+        },
+        {
+          "start": 4.04,
+          "end": 4.42,
+          "word": "kita"
+        },
+        {
+          "start": 4.42,
+          "end": 4.8,
+          "word": "bahas"
+        },
+        {
+          "start": 4.8,
+          "end": 5.18,
+          "word": "transformasi"
+        },
+        {
+          "start": 5.18,
+          "end": 5.56,
+          "word": "digital."
+        }
+      ]
+    },
+    {
+      "start": 7.36,
+      "end": 11.16,
+      "text": "Eee jadi menurut saya eee tantangan terbesar itu bukan teknologinya.",
+      "words": [
+        {
+          "start": 7.36,
+          "end": 7.74,
+          "word": "Eee"
+        },
+        {
+          "start": 7.74,
+          "end": 8.12,
+          "word": "jadi"
+        },
+        {
+          "start": 8.12,
+          "end": 8.5,
+          "word": "menurut"
+        },
+        {
+          "start": 8.5,
+          "end": 8.88,
+          "word": "saya"
+        },
+        {
+          "start": 8.88,
+          "end": 9.26,
+          "word": "eee"
+        },
+        {
+          "start": 9.26,
+          "end": 9.64,
+          "word": "tantangan"
+        },
+        {
+          "start": 9.64,
+          "end": 10.02,
+          "word": "terbesar"
+        },
+        {
+          "start": 10.02,
+          "end": 10.4,
+          "word": "itu"
+        },
+        {
+          "start": 10.4,
+          "end": 10.78,
+          "word": "bukan"
+        },
+        {
+          "start": 10.78,
+          "end": 11.16,
+          "word": "teknologinya."
+        }
+      ]
+    },
+    {
+      "start": 11.56,
+      "end": 15.74,
+      "text": "Ternyata masalah utamanya ada di kebiasaan tim, dan itu penting sekali.",
+      "words": [
+        {
+          "start": 11.56,
+          "end": 11.94,
+          "word": "Ternyata"
+        },
+        {
+          "start": 11.94,
+          "end": 12.32,
+          "word": "masalah"
+        },
+        {
+          "start": 12.32,
+          "end": 12.7,
+          "word": "utamanya"
+        },
+        {
+          "start": 12.7,
+          "end": 13.08,
+          "word": "ada"
+        },
+        {
+          "start": 13.08,
+          "end": 13.46,
+          "word": "di"
+        },
+        {
+          "start": 13.46,
+          "end": 13.84,
+          "word": "kebiasaan"
+        },
+        {
+          "start": 13.84,
+          "end": 14.22,
+          "word": "tim,"
+        },
+        {
+          "start": 14.22,
+          "end": 14.6,
+          "word": "dan"
+        },
+        {
+          "start": 14.6,
+          "end": 14.98,
+          "word": "itu"
+        },
+        {
+          "start": 14.98,
+          "end": 15.36,
+          "word": "penting"
+        },
+        {
+          "start": 15.36,
+          "end": 15.74,
+          "word": "sekali."
+        }
+      ]
+    },
+    {
+      "start": 17.94,
+      "end": 21.74,
+      "text": "Banyak perusahaan gagal karena strategi yang tidak jelas dari awal.",
+      "words": [
+        {
+          "start": 17.94,
+          "end": 18.32,
+          "word": "Banyak"
+        },
+        {
+          "start": 18.32,
+          "end": 18.7,
+          "word": "perusahaan"
+        },
+        {
+          "start": 18.7,
+          "end": 19.08,
+          "word": "gagal"
+        },
+        {
+          "start": 19.08,
+          "end": 19.46,
+          "word": "karena"
+        },
+        {
+          "start": 19.46,
+          "end": 19.84,
+          "word": "strategi"
+        },
+        {
+          "start": 19.84,
+          "end": 20.22,
+          "word": "yang"
+        },
+        {
+          "start": 20.22,
+          "end": 20.6,
+          "word": "tidak"
+        },
+        {
+          "start": 20.6,
+          "end": 20.98,
+          "word": "jelas"
+        },
+        {
+          "start": 20.98,
+          "end": 21.36,
+          "word": "dari"
+        },
+        {
+          "start": 21.36,
+          "end": 21.74,
+          "word": "awal."
+        }
+      ]
+    },
+    {
+      "start": 22.74,
+      "end": 26.92,
+      "text": "Kami mulai dari satu proses kecil, yaitu penawaran program kepada klien.",
+      "words": [
+        {
+          "start": 22.74,
+          "end": 23.12,
+          "word": "Kami"
+        },
+        {
+          "start": 23.12,
+          "end": 23.5,
+          "word": "mulai"
+        },
+        {
+          "start": 23.5,
+          "end": 23.88,
+          "word": "dari"
+        },
+        {
+          "start": 23.88,
+          "end": 24.26,
+          "word": "satu"
+        },
+        {
+          "start": 24.26,
+          "end": 24.64,
+          "word": "proses"
+        },
+        {
+          "start": 24.64,
+          "end": 25.02,
+          "word": "kecil,"
+        },
+        {
+          "start": 25.02,
+          "end": 25.4,
+          "word": "yaitu"
+        },
+        {
+          "start": 25.4,
+          "end": 25.78,
+          "word": "penawaran"
+        },
+        {
+          "start": 25.78,
+          "end": 26.16,
+          "word": "program"
+        },
+        {
+          "start": 26.16,
+          "end": 26.54,
+          "word": "kepada"
+        },
+        {
+          "start": 26.54,
+          "end": 26.92,
+          "word": "klien."
+        }
+      ]
+    },
+    {
+      "start": 27.42,
+      "end": 33.12,
+      "text": "Hasilnya, waktu penyusunan turun dari tiga hari menjadi dua jam, sekitar 90 persen lebih cepat.",
+      "words": [
+        {
+          "start": 27.42,
+          "end": 27.8,
+          "word": "Hasilnya,"
+        },
+        {
+          "start": 27.8,
+          "end": 28.18,
+          "word": "waktu"
+        },
+        {
+          "start": 28.18,
+          "end": 28.56,
+          "word": "penyusunan"
+        },
+        {
+          "start": 28.56,
+          "end": 28.94,
+          "word": "turun"
+        },
+        {
+          "start": 28.94,
+          "end": 29.32,
+          "word": "dari"
+        },
+        {
+          "start": 29.32,
+          "end": 29.7,
+          "word": "tiga"
+        },
+        {
+          "start": 29.7,
+          "end": 30.08,
+          "word": "hari"
+        },
+        {
+          "start": 30.08,
+          "end": 30.46,
+          "word": "menjadi"
+        },
+        {
+          "start": 30.46,
+          "end": 30.84,
+          "word": "dua"
+        },
+        {
+          "start": 30.84,
+          "end": 31.22,
+          "word": "jam,"
+        },
+        {
+          "start": 31.22,
+          "end": 31.6,
+          "word": "sekitar"
+        },
+        {
+          "start": 31.6,
+          "end": 31.98,
+          "word": "90"
+        },
+        {
+          "start": 31.98,
+          "end": 32.36,
+          "word": "persen"
+        },
+        {
+          "start": 32.36,
+          "end": 32.74,
+          "word": "lebih"
+        },
+        {
+          "start": 32.74,
+          "end": 33.12,
+          "word": "cepat."
+        }
+      ]
+    },
+    {
+      "start": 35.72,
+      "end": 38.76,
+      "text": "Lalu apa pelajaran paling berharga dari proyek ini?",
+      "words": [
+        {
+          "start": 35.72,
+          "end": 36.1,
+          "word": "Lalu"
+        },
+        {
+          "start": 36.1,
+          "end": 36.48,
+          "word": "apa"
+        },
+        {
+          "start": 36.48,
+          "end": 36.86,
+          "word": "pelajaran"
+        },
+        {
+          "start": 36.86,
+          "end": 37.24,
+          "word": "paling"
+        },
+        {
+          "start": 37.24,
+          "end": 37.62,
+          "word": "berharga"
+        },
+        {
+          "start": 37.62,
+          "end": 38.0,
+          "word": "dari"
+        },
+        {
+          "start": 38.0,
+          "end": 38.38,
+          "word": "proyek"
+        },
+        {
+          "start": 38.38,
+          "end": 38.76,
+          "word": "ini?"
+        }
+      ]
+    },
+    {
+      "start": 39.66,
+      "end": 43.08,
+      "text": "Kuncinya adalah mulai kecil, ukur dampaknya, lalu skalakan pelan-pelan.",
+      "words": [
+        {
+          "start": 39.66,
+          "end": 40.04,
+          "word": "Kuncinya"
+        },
+        {
+          "start": 40.04,
+          "end": 40.42,
+          "word": "adalah"
+        },
+        {
+          "start": 40.42,
+          "end": 40.8,
+          "word": "mulai"
+        },
+        {
+          "start": 40.8,
+          "end": 41.18,
+          "word": "kecil,"
+        },
+        {
+          "start": 41.18,
+          "end": 41.56,
+          "word": "ukur"
+        },
+        {
+          "start": 41.56,
+          "end": 41.94,
+          "word": "dampaknya,"
+        },
+        {
+          "start": 41.94,
+          "end": 42.32,
+          "word": "lalu"
+        },
+        {
+          "start": 42.32,
+          "end": 42.7,
+          "word": "skalakan"
+        },
+        {
+          "start": 42.7,
+          "end": 43.08,
+          "word": "pelan-pelan."
+        }
+      ]
+    },
+    {
+      "start": 44.58,
+      "end": 48.38,
+      "text": "Emm risikonya juga harus dipahami, terutama soal keamanan data klien.",
+      "words": [
+        {
+          "start": 44.58,
+          "end": 44.96,
+          "word": "Emm"
+        },
+        {
+          "start": 44.96,
+          "end": 45.34,
+          "word": "risikonya"
+        },
+        {
+          "start": 45.34,
+          "end": 45.72,
+          "word": "juga"
+        },
+        {
+          "start": 45.72,
+          "end": 46.1,
+          "word": "harus"
+        },
+        {
+          "start": 46.1,
+          "end": 46.48,
+          "word": "dipahami,"
+        },
+        {
+          "start": 46.48,
+          "end": 46.86,
+          "word": "terutama"
+        },
+        {
+          "start": 46.86,
+          "end": 47.24,
+          "word": "soal"
+        },
+        {
+          "start": 47.24,
+          "end": 47.62,
+          "word": "keamanan"
+        },
+        {
+          "start": 47.62,
+          "end": 48.0,
+          "word": "data"
+        },
+        {
+          "start": 48.0,
+          "end": 48.38,
+          "word": "klien."
+        }
+      ]
+    },
+    {
+      "start": 48.98,
+      "end": 52.4,
+      "text": "Terima kasih sudah menonton, sampai jumpa di episode berikutnya.",
+      "words": [
+        {
+          "start": 48.98,
+          "end": 49.36,
+          "word": "Terima"
+        },
+        {
+          "start": 49.36,
+          "end": 49.74,
+          "word": "kasih"
+        },
+        {
+          "start": 49.74,
+          "end": 50.12,
+          "word": "sudah"
+        },
+        {
+          "start": 50.12,
+          "end": 50.5,
+          "word": "menonton,"
+        },
+        {
+          "start": 50.5,
+          "end": 50.88,
+          "word": "sampai"
+        },
+        {
+          "start": 50.88,
+          "end": 51.26,
+          "word": "jumpa"
+        },
+        {
+          "start": 51.26,
+          "end": 51.64,
+          "word": "di"
+        },
+        {
+          "start": 51.64,
+          "end": 52.02,
+          "word": "episode"
+        },
+        {
+          "start": 52.02,
+          "end": 52.4,
+          "word": "berikutnya."
+        }
+      ]
+    }
+  ]
+}

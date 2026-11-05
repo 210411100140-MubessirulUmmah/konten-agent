@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Podcast AI Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f5;--card:#fff;--ink:#17262b;--mute:#586c72;--line:#d3dcdd;--acc:#0e6b6b;--accink:#fff;--bad:#b3261e;--ok:#1b7a43}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1719;--card:#162124;--ink:#e6eeef;--mute:#93a7ac;--line:#27373b;--acc:#4fc3c3;--accink:#06201f;--bad:#ff8a80;--ok:#6fd49a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 "Bricolage Grotesque",system-ui,sans-serif}
+main{max-width:920px;margin:0 auto;padding:28px 20px 80px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:18px}
+.badge{font-size:13px;color:var(--mute);display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--mute)}
+.dot.on{background:var(--ok)}.dot.off{background:var(--bad)}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.05;font-weight:800;letter-spacing:-.02em;margin:44px 0 12px;max-width:16ch}
+.lead{color:var(--mute);max-width:56ch;margin:0 0 28px}
+h2{font-size:20px;margin:36px 0 12px}
+section.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px}
+.tabs{display:flex;gap:4px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:8px 14px;font:inherit;font-weight:600;color:var(--mute);cursor:pointer}
+.tabs button[aria-pressed=true]{color:var(--ink);border-color:var(--acc)}
+.drop{display:block;border:2px dashed var(--line);border-radius:8px;padding:34px 16px;text-align:center;cursor:pointer;color:var(--mute)}
+.drop:hover,.drop.over{border-color:var(--acc);color:var(--ink)}
+.drop input{position:absolute;opacity:0;width:1px;height:1px}
+.drop:focus-within{outline:3px solid var(--acc);outline-offset:2px}
+input[type=text],input[type=password],input[type=url],select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+textarea{min-height:180px;resize:vertical}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:18px 0}
+label.f{display:block;font-size:14px;font-weight:600}
+label.f>*{margin-top:6px;font-weight:400}
+small{display:block;color:var(--mute);font-size:13px;margin-top:6px}
+button.main{background:var(--acc);color:var(--accink);border:0;border-radius:6px;padding:12px 22px;font:inherit;font-weight:700;cursor:pointer}
+button.main:disabled{opacity:.5;cursor:default}
+button.ghost,a.ghost{background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:5px 11px;font:inherit;font-size:13px;cursor:pointer;text-decoration:none;display:inline-block}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+#err{color:var(--bad);margin:12px 0 0;font-weight:600}
+.track{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;list-style:none;padding:0;margin:14px 0 8px;counter-reset:s}
+.track li{counter-increment:s;font-size:13px;color:var(--mute);border-top:5px solid var(--line);padding-top:8px;line-height:1.3}
+.track li::before{content:counter(s) ". "}
+.track li.now{border-color:var(--acc);color:var(--ink);font-weight:600}
+.track li.done{border-color:var(--ok);color:var(--ink)}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .5s}
+#msg{color:var(--mute);font-size:14px;margin:8px 0 0}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row.sp{justify-content:space-between}
+.clips{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.clip video{width:100%;aspect-ratio:9/16;background:#000;border-radius:8px}
+.clip h3{font-size:16px;margin:10px 0 4px}
+.clip p{font-size:14px;color:var(--mute);margin:0 0 8px}
+video.wide{width:100%;max-height:420px;background:#000;border-radius:8px}
+img.thumb{width:100%;max-width:560px;border-radius:8px;display:block;margin-bottom:10px}
+ul.titles{list-style:none;padding:0;margin:0}
+ul.titles li{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.stat{display:flex;gap:28px;flex-wrap:wrap;margin:0 0 6px}
+.stat b{font-size:28px;font-weight:800;display:block;line-height:1.1}
+.stat span{font-size:13px;color:var(--mute)}
+.note{font-size:14px;color:var(--mute)}
+dialog{border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);max-width:460px;width:92%}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:560px){.track{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="brand">Podcast AI Studio</div>
+  <div class="badge"><span class="dot" id="dot"></span><span id="srv">Memeriksa server...</span><button class="ghost" id="setBtn">Pengaturan</button></div>
+</header>
+
+<h1>Dari rekaman mentah ke klip siap tayang.</h1>
+<p class="lead">Unggah video podcast atau tempel link YouTube. Jeda panjang dan "eee" dipotong, momen terbaik dijadikan klip vertikal bersubtitle, lengkap dengan judul, deskripsi, chapter, caption, dan thumbnail.</p>
+
+<section class="box" id="input">
+  <div class="tabs" role="group" aria-label="Sumber video">
+    <button type="button" data-mode="upload" aria-pressed="true">Unggah file</button>
+    <button type="button" data-mode="yt" aria-pressed="false">Link YouTube</button>
+  </div>
+  <div id="p-upload">
+    <label class="drop" id="drop"><input type="file" id="file" accept="video/*,audio/*"><span id="dropTxt">Seret video ke sini, atau klik untuk memilih (mp4, mov, mkv, webm, mp3, wav, m4a)</span></label>
+  </div>
+  <div id="p-yt" hidden>
+    <input type="url" id="url" placeholder="https://www.youtube.com/watch?v=...">
+    <small>Gunakan hanya untuk video milik sendiri atau yang kamu punya izinnya. Unduhan YouTube bisa gagal tergantung video dan jaringan; kalau gagal, unggah file langsung.</small>
+  </div>
+  <div class="opts">
+    <label class="f">Jumlah klip pendek<select id="clips"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+    <label class="f">Bahasa rekaman<select id="lang"><option value="id" selected>Indonesia</option><option value="en">Inggris</option></select></label>
+    <label class="f">Gemini API key (opsional)<input type="password" id="key" autocomplete="off" placeholder="kosongkan untuk mode heuristik"></label>
+  </div>
+  <small>Key dipakai hanya untuk satu proses dan tidak disimpan. Free tier Gemini boleh dipakai Google untuk memperbaiki produknya, jadi jangan kirim materi rahasia atau belum tayang.</small>
+  <p class="row" style="margin-top:18px"><button class="main" id="go">Proses video</button></p>
+  <p id="err" role="alert" hidden></p>
+</section>
+
+<section class="box" id="prog" hidden style="margin-top:20px">
+  <div class="bar"><i id="fill"></i></div>
+  <ol class="track" id="track"></ol>
+  <p id="msg"></p>
+</section>
+
+<div id="res" hidden></div>
+</main>
+
+<dialog id="dlg">
+  <form method="dialog">
+    <h2 style="margin-top:0">Alamat server</h2>
+    <p class="note">Server pemroses (FastAPI) jalan di laptopmu. Kalau halaman ini dibuka dari Vercel, arahkan ke server tersebut.</p>
+    <input type="text" id="apiIn" placeholder="http://localhost:8000">
+    <p class="row" style="margin-top:14px"><button class="main" value="ok" id="apiSave">Simpan</button><button class="ghost" value="x">Batal</button></p>
+  </form>
+</dialog>
+
+<script>
+const LOCAL = ["localhost", "127.0.0.1", ""].includes(location.hostname);
+const DEFAULT_API = LOCAL ? "" : "http://localhost:8000";
+const $ = s => document.querySelector(s);
+const api = () => (localStorage.getItem("api") || DEFAULT_API).replace(/\/$/, "");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const STEPS = ["Transkripsi", "Potong jeda dan eee", "Pilih momen terbaik", "Render klip 9:16", "Judul dan caption", "Thumbnail"];
+let mode = "upload", file = null, timer = null, copies = [];
+
+function fmt(sec) { sec = Math.round(sec); const m = Math.floor(sec / 60); return m ? `${m} mnt ${String(sec % 60).padStart(2, "0")} dtk` : `${sec} dtk`; }
+function showErr(t) { const e = $("#err"); e.textContent = t || ""; e.hidden = !t; }
+
+async function ping() {
+  try {
+    const r = await fetch(api() + "/api/health", { signal: AbortSignal.timeout(5000) });
+    const h = await r.json();
+    $("#dot").className = "dot on";
+    $("#srv").textContent = `Server terhubung (Whisper ${h.model}, LLM: ${h.llm})`;
+  } catch {
+    $("#dot").className = "dot off";
+    $("#srv").textContent = "Server belum terhubung";
+  }
+}
+
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => {
+  mode = b.dataset.mode;
+  document.querySelectorAll(".tabs button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  $("#p-upload").hidden = mode !== "upload";
+  $("#p-yt").hidden = mode !== "yt";
+});
+
+function setFile(f) { file = f; $("#dropTxt").textContent = f ? `${f.name} (${(f.size / 1048576).toFixed(1)} MB)` : "Seret video ke sini, atau klik untuk memilih"; }
+$("#file").onchange = e => setFile(e.target.files[0] || null);
+$("#drop").ondragover = e => { e.preventDefault(); $("#drop").classList.add("over"); };
+$("#drop").ondragleave = () => $("#drop").classList.remove("over");
+$("#drop").ondrop = e => { e.preventDefault(); $("#drop").classList.remove("over"); if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]); };
+
+$("#setBtn").onclick = () => { $("#apiIn").value = localStorage.getItem("api") || DEFAULT_API || "http://localhost:8000"; $("#dlg").showModal(); };
+$("#dlg").onclose = () => { if ($("#dlg").returnValue === "ok") { localStorage.setItem("api", $("#apiIn").value.trim()); ping(); } };
+
+function drawTrack(step) {
+  $("#track").innerHTML = STEPS.map((s, i) => `<li class="${i + 1 < step ? "done" : i + 1 === step ? "now" : ""}">${esc(s)}</li>`).join("");
+}
+
+$("#go").onclick = () => {
+  showErr("");
+  const fd = new FormData();
+  if (mode === "upload") { if (!file) return showErr("Pilih file video dulu."); fd.append("file", file); }
+  else { const u = $("#url").value.trim(); if (!u) return showErr("Tempel link YouTube dulu."); fd.append("url", u); }
+  fd.append("clips", $("#clips").value); fd.append("language", $("#lang").value); fd.append("gemini_key", $("#key").value);
+  $("#go").disabled = true; $("#res").hidden = true; $("#prog").hidden = false;
+  drawTrack(0); $("#fill").style.width = "0"; $("#msg").textContent = "Mengunggah...";
+  const x = new XMLHttpRequest();
+  x.open("POST", api() + "/api/jobs");
+  x.upload.onprogress = e => { if (e.lengthComputable) $("#msg").textContent = `Mengunggah... ${Math.round(e.loaded / e.total * 100)}%`; };
+  x.onerror = () => fail("Tidak bisa menghubungi server. Pastikan server berjalan, lalu cek alamatnya di Pengaturan.");
+  x.onload = () => {
+    let d = {}; try { d = JSON.parse(x.responseText); } catch {}
+    if (x.status !== 200) return fail(d.detail || `Server menolak permintaan (kode ${x.status}).`);
+    poll(d.id);
+  };
+  x.send(fd);
+};
+
+function fail(t) { clearInterval(timer); $("#go").disabled = false; $("#prog").hidden = true; showErr(t); }
+
+function poll(id) {
+  clearInterval(timer);
+  timer = setInterval(async () => {
+    try {
+      const j = await (await fetch(`${api()}/api/jobs/${id}`)).json();
+      if (j.status === "error") return fail("Proses gagal: " + j.message);
+      drawTrack(j.step);
+      $("#fill").style.width = Math.round(j.progress * 100) + "%";
+      $("#msg").textContent = j.message;
+      if (j.status === "done") { clearInterval(timer); $("#go").disabled = false; $("#prog").hidden = true; render(j.result, id); }
+    } catch { /* koneksi putus sebentar: coba lagi di putaran berikutnya */ }
+  }, 2000);
+}
+
+function cp(t) { copies.push(t); return `<button class="ghost" data-c="${copies.length - 1}">Salin</button>`; }
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-c]"); if (!b) return;
+  navigator.clipboard.writeText(copies[+b.dataset.c]).then(() => { b.textContent = "Tersalin"; setTimeout(() => b.textContent = "Salin", 1500); });
+});
+
+function render(r, id) {
+  copies = [];
+  const F = p => `${api()}/api/jobs/${id}/files/${encodeURI(p)}`;
+  const rp = r.report;
+  let h = `<h2>Hasil</h2><section class="box"><div class="stat">
+    <div><b>${fmt(rp.durasi_asli_detik)}</b><span>durasi asli</span></div>
+    <div><b>${fmt(rp.durasi_bersih_detik)}</b><span>setelah dipotong</span></div>
+    <div><b>${rp.jeda_dipotong}</b><span>jeda panjang dipotong</span></div>
+    <div><b>${rp.kata_pengisi_dipotong}</b><span>kata pengisi dipotong</span></div></div>
+    <p class="note">${r.mode === "llm" ? "Judul, highlight, dan caption dibuat dengan LLM." : "Mode heuristik (tanpa LLM): judul dan highlight lebih sederhana. Tambahkan Gemini API key untuk hasil yang lebih baik."} Semua keluaran adalah draf; periksa sebelum tayang.</p>
+    <a class="ghost" href="${api()}/api/jobs/${id}/zip">Unduh semua (zip)</a></section>`;
+  if (r.clean_video) h += `<h2>Video bersih</h2><section class="box"><video class="wide" controls preload="metadata" src="${F(r.clean_video)}"></video>
+    <p class="row"><a class="ghost" href="${F(r.clean_video)}" download>Unduh video</a>${r.has_srt ? `<a class="ghost" href="${F("episode_clean.srt")}" download>Unduh subtitle (.srt)</a>` : ""}</p></section>`;
+  if (r.clips.length) h += `<h2>Klip pendek</h2><div class="clips">${r.clips.map(c => `<div class="clip">
+    ${c.file ? `<video controls preload="metadata" src="${F(c.file)}"></video>` : ""}
+    <h3>${esc(c.title)}</h3><p>${esc(c.caption || c.hook)}</p>
+    <div class="row">${cp(c.caption || c.title)}${c.file ? `<a class="ghost" href="${F(c.file)}" download>Unduh</a>` : ""}</div></div>`).join("")}</div>`;
+  h += `<h2>Judul dan deskripsi YouTube</h2><section class="box">
+    ${r.thumbnail ? `<img class="thumb" src="${F(r.thumbnail)}" alt="Thumbnail"><p><a class="ghost" href="${F(r.thumbnail)}" download>Unduh thumbnail</a></p>` : ""}
+    <ul class="titles">${r.titles.map(t => `<li><span>${esc(t)}</span>${cp(t)}</li>`).join("")}</ul>
+    <p class="row sp" style="margin-top:16px"><b>Deskripsi (sudah ada chapter)</b>${cp(r.youtube_description)}</p>
+    <textarea readonly>${esc(r.youtube_description)}</textarea></section>
+    <h2>Caption media sosial</h2><section class="box">
+    <p class="row sp"><b>Instagram</b>${cp(r.instagram_caption)}</p><p>${esc(r.instagram_caption)}</p>
+    <p class="row sp"><b>TikTok</b>${cp(r.tiktok_caption)}</p><p>${esc(r.tiktok_caption)}</p></section>`;
+  $("#res").innerHTML = h; $("#res").hidden = false; $("#res").scrollIntoView({ behavior: "smooth" });
+}
+
+ping();
+</script>
+</body>
+</html>

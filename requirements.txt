@@ -1,0 +1,8 @@
+faster-whisper>=1.0.3
+Pillow>=10.1.0
+fastapi>=0.115
+uvicorn>=0.30
+python-multipart>=0.0.9
+yt-dlp
+# Opsional, hanya kalau pakai Claude (berbayar):
+# anthropic>=0.40.0
