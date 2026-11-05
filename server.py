@@ -101,7 +101,7 @@ def run_job(jid, media, opts):
             }
             job.update(status="done", progress=1.0, message="Selesai")
         except (Exception, SystemExit) as e:
-            job.update(status="error", message=str(e)[:400] or type(e).__name__)
+            job.update(status="error", message=str(e)[:900] or type(e).__name__)
         finally:
             if backup is None:
                 os.environ.pop("GEMINI_API_KEY", None)

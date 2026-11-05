@@ -19,7 +19,9 @@ def run(cmd, cwd=None):
     cmd = [str(c) for c in cmd]
     p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
     if p.returncode != 0:
-        raise RuntimeError(f"Perintah gagal: {' '.join(cmd)}\n{p.stderr[-2000:]}")
+        tail = (p.stderr or "").strip()[-700:]
+        print("PERINTAH GAGAL:", " ".join(cmd), "\n", p.stderr[-2000:], file=sys.stderr)
+        raise RuntimeError(f"{Path(cmd[0]).name} gagal (kode {p.returncode}): {tail or 'tanpa pesan error'}")
     return p
 
 
