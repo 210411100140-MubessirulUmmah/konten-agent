@@ -98,8 +98,15 @@ def render_cleaned(media, keep, out_path, has_video=True, workdir=None):
 
     script = Path(workdir or Path(out_path).parent) / "_filter.txt"
     script.write_text("\n".join(lines), encoding="utf-8")
+    base = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", media]
+    tail = [*maps, "-c:a", "aac", "-b:a", "160k", out_path]
     try:
-        run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", media,
-             "-filter_complex_script", script, *maps, "-c:a", "aac", "-b:a", "160k", out_path])
+        # FFmpeg >= 7: "-/filter_complex <file>"; opsi lama -filter_complex_script dihapus di FFmpeg 8.
+        try:
+            run([*base, "-/filter_complex", script, *tail])
+        except RuntimeError as e:
+            if "Unrecognized option" not in str(e) and "Option not found" not in str(e):
+                raise
+            run([*base, "-filter_complex_script", script, *tail])  # FFmpeg lama (< 7)
     finally:
         script.unlink(missing_ok=True)
